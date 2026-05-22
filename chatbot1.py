@@ -1,6 +1,6 @@
 import streamlit as st
 import random
-from datetime import datetime
+import streamlit.components.v1 as components
 
 st.set_page_config(page_title="Het-Jet AI")
 
@@ -169,8 +169,34 @@ elif st.session_state.menu == "time":
 
     st.subheader("Current Time")
 
-    current_time = datetime.now().strftime(
-        "%H:%M:%S"
-    )
+    components.html(
+        """
+        <div id="clock" style="
+            font-size:30px;
+            font-weight:bold;
+            color:lime;
+            padding:20px;
+            border-radius:10px;
+            background-color:#0e402d;
+            text-align:center;
+        ">
+        </div>
 
-    st.success(f"Current Time: {current_time}")
+        <script>
+        function updateClock() {
+
+            const now = new Date();
+
+            const time = now.toLocaleTimeString();
+
+            document.getElementById("clock").innerHTML =
+                "Current Time: " + time;
+        }
+
+        setInterval(updateClock, 1000);
+
+        updateClock();
+        </script>
+        """,
+        height=100
+    )
