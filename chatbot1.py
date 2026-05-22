@@ -7,19 +7,21 @@ st.set_page_config(page_title="Het-Jet AI")
 st.title("Het-Jet AI")
 st.write("How can I help you today?")
 
-st.button("Simple Calculator")
-st.button("Play Games")
-st.button("Table Teller")
-st.button("Check Time")
+a = st.button("Simple Calculator")
+b = st.button("Play Games")
+c = st.button("Table Teller")
+d = st.button("Check Time")
 
 
 
-if st.button("Play Games"):
+if b:
 
     st.subheader("Choose a Game")
 
+    e = st.button("Rock Paper Scissors")
+    f = st.button("Roll Dice")
 
-    if st.button("Rock Paper Scissors"):
+    if e:
 
         user = st.selectbox(
             ["Rock", "Paper", "Scissors"]
@@ -49,7 +51,7 @@ if st.button("Play Games"):
             st.error("Computer Wins!")
 
 
-    if st.button("Roll Dice"):
+    if f:
 
         dice = random.randint(1, 6)
 
@@ -57,7 +59,7 @@ if st.button("Play Games"):
 
 
 
-if st.button("Simple Calculator"):
+if a:
 
     num1 = st.number_input("Enter first no. : ")
     num2 = st.number_input("Enter second no. : ")
@@ -101,21 +103,21 @@ if st.button("Simple Calculator"):
         st.markdown(f"""Answer = {result}""")
         
 
-if st.button("Table Teller"):
+if c:
 
     num = st.number_input(
         "Enter Number",
         step=1
     )
-    st.button("Show Table")
-    if st.button("Show Table"):
+    g = st.button("Show Table")
+    if g:
 
         for i in range(1, 11):
 
             st.write(f"{num} x {i} = {num*i}")
             
 
-if st.button("Check Time"):
+if d:
 
     current_time = datetime.now().strftime(
         "%H:%M:%S"
